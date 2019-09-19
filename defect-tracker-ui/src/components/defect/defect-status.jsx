@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import Card from "../commons/card";
+import { connect } from 'react-redux';
+import {fetchDefectStatus} from '../../_actions/defect-status-action';
 
-const defectStatus = [
-  { id: 1, status: "new" },
-  { id: 2, status: "open" },
-  { id: 3, status: "fixed" },
-  { id: 4, status: "closed" }
-];
-export default class Example extends Component {
+class DefectStatus extends Component {
+  componentDidMount(){
+    this.props.getDefectStatus()
+  }
   render() {
     return (
       <div className="col-sm-4">
@@ -20,7 +19,7 @@ export default class Example extends Component {
               </tr>
             </thead>
             <tbody>
-              {defectStatus.map(dStatus => (
+              {this.props.defectStatusList.map(dStatus => (
                 <tr key={dStatus.id}>
                   <td>{dStatus.id}</td>
                   <td>{dStatus.status}</td>
@@ -33,3 +32,11 @@ export default class Example extends Component {
     );
   }
 }
+const mapStateToProps = state =>({
+  defectStatusList:state.defectStatusStore.defectStatuses,
+  
+})
+const mapDispatchToProps=dispatch=>({
+  getDefectStatus: () => dispatch(fetchDefectStatus()),
+})
+export default connect (mapStateToProps,mapDispatchToProps)(DefectStatus);

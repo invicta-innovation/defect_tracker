@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 export default class Card extends Component {
     render() {
         return (
-          <div class="card">
-            <div class="card-header">
-              <h3 class="h6 mb-0">{this.props.title}</h3>
+          <div className="card">
+            <div className="card-header">
+              <h3 className="h6 mb-0">{this.props.title}</h3>
             </div>
-            <div class="card-body">
+            <div className="card-body">
               {this.props.children}
             </div>
           </div>

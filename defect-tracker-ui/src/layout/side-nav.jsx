@@ -14,13 +14,31 @@ class SideNav extends Component {
                 <li className="sidebar-list-item">
                     {/* <span className="sidebar-link text-muted pl-lg-5">dashboard</span> */}
                     <Link to="/example" className="sidebar-link text-muted pl-lg-5">dashboard</Link>
+                    <Link to="/projects" className="sidebar-link text-muted pl-lg-5">Projects</Link>
+                    <Link to="/modules" className="sidebar-link text-muted pl-lg-5">Modules</Link>
+                    <Link to="/releases" className="sidebar-link text-muted pl-lg-5">Releases</Link>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li className="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#page1" aria-expanded="false" aria-controls="page1" className="sidebar-link text-muted"><i className="fas fa-th-large mr-3 text-gray"></i><span>General Config</span></a>
+            <div id="page1" className="collapse">
+              <ul className="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li className="sidebar-list-item">
                     <Link to="/defectStatus" className="sidebar-link text-muted pl-lg-5">Defect Status</Link>
+                    <Link to="/defectTypes" className="sidebar-link text-muted pl-lg-5">Defect Types</Link>
+                    <Link to="/priority" className="sidebar-link text-muted pl-lg-5">Priority</Link>
+                    <Link to="/severity" className="sidebar-link text-muted pl-lg-5">Severity</Link>
                 </li>
               </ul>
             </div>
           </li>
         </ul>
       </div>
+
+      
+      
     )
   }
 }

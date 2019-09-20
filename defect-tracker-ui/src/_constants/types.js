@@ -1,1 +1,5 @@
 export const GET_DEFECT_STATUS = "GET_DEFECT_STATUS";
+export const GET_DEFECT_TYPES = "GET_DEFECT_TYPES";
+export const GET_PERIORITY = "GET_PERIORITY";
+export const GET_SEVERITY = "GET_SEVERITY";
+export const GET_RELEASES = "GET_RELEASES";

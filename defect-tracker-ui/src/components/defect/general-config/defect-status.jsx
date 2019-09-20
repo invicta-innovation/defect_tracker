@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import Card from "../commons/card";
+import Card from "../../commons/card";
 import { connect } from 'react-redux';
-import {fetchDefectStatus} from '../../_actions/defect-status-action';
+import { fetchDefectStatus } from '../../../_actions/defect-status-action';
 
 class DefectStatus extends Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.getDefectStatus()
   }
   render() {
     return (
-      <div className="col-sm-4">
+      <div className="col-lg-6">
         <Card title="Defect status">
           <table className="table table-striped table-hover card-text">
             <thead>
@@ -32,11 +32,11 @@ class DefectStatus extends Component {
     );
   }
 }
-const mapStateToProps = state =>({
-  defectStatusList:state.defectStatusStore.defectStatuses,
-  
+const mapStateToProps = state => ({
+  defectStatusList: state.defectStatusStore.defectStatuses,
+
 })
-const mapDispatchToProps=dispatch=>({
+const mapDispatchToProps = dispatch => ({
   getDefectStatus: () => dispatch(fetchDefectStatus()),
 })
-export default connect (mapStateToProps,mapDispatchToProps)(DefectStatus);
+export default connect(mapStateToProps, mapDispatchToProps)(DefectStatus);

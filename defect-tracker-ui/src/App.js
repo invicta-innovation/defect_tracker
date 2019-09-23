@@ -8,7 +8,7 @@ import SideNav from './layout/side-nav';
 import Footer from './layout/footer';
 import Example from './components/defect/example';
 import GeneralConfig from './components/defect/general-config/defectConfig'
-import Releases from './components/defect/releases';
+import Releases from './components/defect/releases/releases';
 import Projects from './components/defect/projects';
 import Modules from './components/defect/modules';
 

@@ -9,13 +9,14 @@ class DefectStatus extends Component {
   }
   render() {
     return (
-      <div className="col-lg-6">
+      <div className="col-lg-8">
         <Card title="Defect status">
           <table className="table table-striped table-hover card-text">
             <thead>
               <tr>
                 <th>Id</th>
                 <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -23,6 +24,21 @@ class DefectStatus extends Component {
                 <tr key={dStatus.id}>
                   <td>{dStatus.id}</td>
                   <td>{dStatus.status}</td>
+                  <td>
+                    {" "}
+                    &nbsp; &nbsp;
+                <button
+                      type="submit"
+                      class="btn btn-success btn-circle"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Edit"
+                    // onClick={()=>this.props.onModalShow(role.id)}
+                    >
+                      <i class="fas fa-pen-fancy" />
+                    </button>
+                    &nbsp; &nbsp; &nbsp;
+              </td>
                 </tr>
               ))}
             </tbody>

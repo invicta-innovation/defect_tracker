@@ -4,6 +4,7 @@ import priorityReducer from "./priority-reducer";
 import defectTypeReducer from "./defect-types-reducer";
 import severityReducer from "./severity-reducer";
 import releasesReducer from "./releases-reducer";
+import testReducer from './test-reducer'
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     defectTypeStore: defectTypeReducer,
     priorityStore:priorityReducer,
     severityStore:severityReducer,
-    releasesStore : releasesReducer
+    releasesStore : releasesReducer,
+    testStore:testReducer
   });

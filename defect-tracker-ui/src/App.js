@@ -11,6 +11,7 @@ import GeneralConfig from './components/defect/general-config/defectConfig'
 import Releases from './components/defect/releases/releases';
 import Projects from './components/defect/projects';
 import Modules from './components/defect/modules';
+import Test from './components/defect/test/test'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                 <Route exact path="/releases" component={Releases} />
                 <Route exact path="/projects" component={Projects} />
                 <Route exact path="/modules" component={Modules} />
+                <Route exact path="/test" component={Test} />
               </Switch>
             </div>
             <Footer />

@@ -20,6 +20,8 @@ class SideNav extends Component {
                   <Link to="/viewModules" className="sidebar-link text-muted pl-lg-5">Modules</Link>
                   <Link to="/viewSubModules" className="sidebar-link text-muted pl-lg-5">SubModules</Link>
                   <Link to="/releases" className="sidebar-link text-muted pl-lg-5">Releases</Link>
+                  <Link to="/test" className="sidebar-link text-muted pl-lg-5">test</Link>
+
                 </li>
               </ul>
             </div>

@@ -8,17 +8,18 @@ class DefectType extends Component {
 
     componentDidMount() {
         this.props.getDefectTypes()
-      }
+    }
 
     render() {
         return (
-            <div className="col-lg-6">
+            <div className="col-lg-8">
                 <Card title="Defect Type">
                     <table className="table table-striped table-hover card-text">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Defect Type</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +27,21 @@ class DefectType extends Component {
                                 <tr key={defectType.id}>
                                     <td>{defectType.id}</td>
                                     <td>{defectType.defectTypeName}</td>
+                                    <td>
+                                        {" "}
+                                        &nbsp; &nbsp;
+                <button
+                                            type="submit"
+                                            class="btn btn-success btn-circle"
+                                            data-toggle="tooltip"
+                                            data-placement="bottom"
+                                            title="Edit"
+                                        // onClick={()=>this.props.onModalShow(role.id)}
+                                        >
+                                            <i class="fas fa-pen-fancy" />
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+              </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -39,9 +55,9 @@ class DefectType extends Component {
 
 const mapStateToProps = state => ({
     defectTypeList: state.defectTypeStore.defectTypes,
-  
-  })
-  const mapDispatchToProps = dispatch => ({
+
+})
+const mapDispatchToProps = dispatch => ({
     getDefectTypes: () => dispatch(fetchDefectTypes()),
-  })
-  export default connect(mapStateToProps, mapDispatchToProps)(DefectType);
+})
+export default connect(mapStateToProps, mapDispatchToProps)(DefectType);

@@ -14,6 +14,10 @@ import Modules from './components/defect/modules';
 import ViewProject from "./components/defect/projects/view-project"
 import ViewSubModules from './components/defect/submodules/view-submodule'
 import ViewModules from './components/defect/modules/view-module'
+import Releases from './components/defect/releases/releases';
+import Projects from './components/defect/projects';
+import Modules from './components/defect/modules';
+import Test from './components/defect/test/test'
 
 function App() {
   return (
@@ -33,6 +37,7 @@ function App() {
                 <Route exact path="/viewModules" component={ViewModules} />
                 <Route exact path="/viewSubModules" component={ViewSubModules} />
                 <Route exact path="/modules" component={Modules} />
+                <Route exact path="/test" component={Test} />
               </Switch>
             </div>
             <Footer />

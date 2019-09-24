@@ -7,6 +7,8 @@ import releasesReducer from "./releases-reducer";
 import projectReducer from "./project-reducer";
 import moduleReducer from "./module-reducer"
 import submoduleReducer from "./sub-module-reducer"
+import testReducer from './test-reducer'
+
 
 export default combineReducers({
     defectStatusStore: defectStatusReducer,
@@ -17,4 +19,5 @@ export default combineReducers({
     projectsStore:projectReducer,
     modulesStore:moduleReducer,
     submodulesStore:submoduleReducer,
+    testStore:testReducer
   });

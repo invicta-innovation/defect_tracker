@@ -12,3 +12,8 @@ export const DELETE_PROJECT = "DELETE_PROJECT";
 export const GET_MODULE = "GET_MODULE";
 
 export const GET_SUBMODULE = "GET_SUBMODULE";
+export const GET_TESTS = "GET_TESTS";
+export const NEW_TEST = "NEW_TEST";
+export const EDIT_TEST = "EDIT_TEST";
+
+export const SHOW_MODAL_TEST = "SHOW_MODAL_TEST";

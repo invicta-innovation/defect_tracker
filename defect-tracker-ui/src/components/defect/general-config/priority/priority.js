@@ -1,58 +1,45 @@
 import React, { Component } from 'react';
-import Card from "../../../commons/card";
 import { connect } from 'react-redux';
-import { fetchPriority } from '../../../../_actions/priority-action';
+import { showModal } from '../../../../_actions/priority-action';
+import PriorityList from './priorityList';
+import PriorityModal from './priority-modal';
 
 class Priority extends Component {
-  componentDidMount() {
-    this.props.getPriority()
-  }
+
   render() {
     return (
-      <div className="col-lg-8">
-          <table className="table table-striped table-hover card-text">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Priority</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.props.priorityList.map(priority => (
-                <tr key={priority.id}>
-                  <td>{priority.id}</td>
-                  <td>{priority.priorityType}</td>
-                  <td>
-                    {" "}
-                    &nbsp; &nbsp;
-                <button
-                      type="submit"
-                      class="btn btn-success btn-circle"
-                      data-toggle="tooltip"
-                      data-placement="bottom"
-                      title="Edit"
-                    // onClick={()=>this.props.onModalShow(role.id)}
-                    >
-                      <i class="fas fa-pen-fancy" />
-                    </button>
-                    &nbsp; &nbsp; &nbsp;
-              </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className="col-sm-4">
+        <div className="card">
+          <div className="d-flex justify-content-between card-header">
+            <h3 className="h6 mb-0">List of Priority</h3>
+            <button
+              type="submit"
+              className="btn btn-info btn"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="addPriority"
+              btn-align="right"
+              onClick={() => this.props.showModal(true)}
+            >
+              + 
+    </button>
+            <PriorityModal />
+          </div>
+          <div className="card-body">
+            <PriorityList />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  priorityList: state.priorityStore.priority,
-})
+  })
 
 const mapDispatchToProps = dispatch => ({
-  getPriority: () => dispatch(fetchPriority()),
+  showModal: (priority) => dispatch(showModal({ action: 'ADD', show: true, title: 'Create Priority' }, priority))
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Priority);

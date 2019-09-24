@@ -1,59 +1,44 @@
 import React, { Component } from 'react';
-import Card from "../../../commons/card";
 import { connect } from 'react-redux';
-import { fetchSeverity } from '../../../../_actions/severity-action';
+import {showModal} from '../../../../_actions/severity-action';
+import SeverityList from './severityList';
+import SeverityModal from './severity-modal';
 
 class Severity extends Component {
-
-  componentDidMount() {
-    this.props.getSeverity()
-  }
-
-  render() {
-    return (
-      <div className="col-lg-8">
-          <table className="table table-striped table-hover card-text">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Severity</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.props.severityList.map(severity => (
-                <tr key={severity.id}>
-                  <td>{severity.id}</td>
-                  <td>{severity.severityName}</td>
-                  <td>
-                    {" "}
-                    &nbsp; &nbsp;
-                <button
-                      type="submit"
-                      class="btn btn-success btn-circle"
-                      data-toggle="tooltip"
-                      data-placement="bottom"
-                      title="Edit"
-                    // onClick={()=>this.props.onModalShow(role.id)}
-                    >
-                      <i class="fas fa-pen-fancy" />
-                    </button>
-                    &nbsp; &nbsp; &nbsp;
-              </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = state => ({
-  severityList: state.severityStore.severity,
-
-})
-const mapDispatchToProps = dispatch => ({
-  getSeverity: () => dispatch(fetchSeverity()),
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Severity);
+    render() {
+                return (
+                  <div className="col-sm-4">
+                    <div className="card">
+                      <div className="d-flex justify-content-between card-header">
+                        <h3 className="h6 mb-0">List of Severity</h3>
+                        <button
+                          type="submit"
+                          className="btn btn-info btn"
+                          data-toggle="tooltip"
+                          data-placement="bottom"
+                          title="addSeverity"
+                          btn-align="right"
+                          onClick={() => this.props.showModal(true)}
+                        >
+                          + 
+                </button>
+                        <SeverityModal />
+                      </div>
+                      <div className="card-body">
+                        <SeverityList />
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+            }
+            
+            const mapStateToProps = state => ({
+              })
+            
+            const mapDispatchToProps = dispatch => ({
+              showModal: (severity) => dispatch(showModal({ action: 'ADD', show: true, title: 'Create Priority' }, severity))
+            
+            })
+            
+            export default connect(mapStateToProps, mapDispatchToProps)(Severity);

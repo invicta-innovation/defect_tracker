@@ -1,28 +1,29 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchDefectStatus } from '../../../../_actions/defect-status-action';
+import { fetchSeverity,showModal } from '../../../../_actions/severity-action';
 
-class DefectStatus extends Component {
+class SeverityList extends Component {
+
   componentDidMount() {
-    this.props.getDefectStatus()
+    this.props.getSeverity()
   }
+
   render() {
     return (
       <div className="col-lg-8">
-        
           <table className="table table-striped table-hover card-text">
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Status</th>
+                <th>Severity</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.props.defectStatusList.map(dStatus => (
-                <tr key={dStatus.id}>
-                  <td>{dStatus.id}</td>
-                  <td>{dStatus.status}</td>
+              {this.props.severityList.map(severity => (
+                <tr key={severity.id}>
+                  <td>{severity.id}</td>
+                  <td>{severity.severityType}</td>
                   <td>
                     {" "}
                     &nbsp; &nbsp;
@@ -32,7 +33,7 @@ class DefectStatus extends Component {
                       data-toggle="tooltip"
                       data-placement="bottom"
                       title="Edit"
-                    // onClick={()=>this.props.onModalShow(role.id)}
+                    onClick={()=>this.props.showModal(severity)}
                     >
                       <i class="fas fa-pen-fancy" />
                     </button>
@@ -46,11 +47,13 @@ class DefectStatus extends Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
-  defectStatusList: state.defectStatusStore.defectStatuses,
+  severityList: state.severityStore.severities,
 
 })
 const mapDispatchToProps = dispatch => ({
-  getDefectStatus: () => dispatch(fetchDefectStatus()),
+  getSeverity: () => dispatch(fetchSeverity()),
+  showModal:(obj)=>dispatch(showModal({action:'EDIT',show:true, title:'Update Severity'}, obj))
 })
-export default connect(mapStateToProps, mapDispatchToProps)(DefectStatus);
+export default connect(mapStateToProps, mapDispatchToProps)(SeverityList);

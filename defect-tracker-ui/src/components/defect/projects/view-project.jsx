@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Card from '../commons/card';
+import React, { Component } from 'react'
+import Card from '../../commons/card';
 import { connect } from 'react-redux';
-import {fetchProject} from '../../_actions/project-action'
+import {fetchProject} from "../../../_actions/projects/get-project-action"
 
-class Projects extends Component {
+class ViewProject extends Component {
     componentDidMount(){
         this.props.getProjects();
     }
@@ -32,6 +32,8 @@ class Projects extends Component {
                     <th>P.Manager</th>
                     <th>Status</th>
                     <th>Action</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -44,6 +46,8 @@ class Projects extends Component {
                       <td>{projects.manager}</td>
                       <td>{projects.status}</td>
                       <td>{projects.action}</td>
+                      <td><button  className="btn btn-primary " type="submit">Edit</button></td>
+                      <td><button  className="btn btn-danger " type="submit">Delete</button></td>
                     </tr>
                   ))}
                 </tbody>
@@ -60,4 +64,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     getProjects: () => dispatch(fetchProject()),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewProject);

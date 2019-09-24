@@ -9,8 +9,11 @@ import Footer from './layout/footer';
 import Example from './components/defect/example';
 import GeneralConfig from './components/defect/general-config/defectConfig'
 import Releases from './components/defect/releases';
-import Projects from './components/defect/projects';
+// import Projects from './components/defect/projects';
 import Modules from './components/defect/modules';
+import ViewProject from "./components/defect/projects/view-project"
+import ViewSubModules from './components/defect/submodules/view-submodule'
+import ViewModules from './components/defect/modules/view-module'
 
 function App() {
   return (
@@ -25,7 +28,10 @@ function App() {
                 <Route exact path="/example" component={Example} />
                 <Route exact path="/defectConfig" component={GeneralConfig} />
                 <Route exact path="/releases" component={Releases} />
-                <Route exact path="/projects" component={Projects} />
+                {/* <Route exact path="/projects" component={Projects} /> */}
+                <Route exact path="/viewProjects" component={ViewProject} />
+                <Route exact path="/viewModules" component={ViewModules} />
+                <Route exact path="/viewSubModules" component={ViewSubModules} />
                 <Route exact path="/modules" component={Modules} />
               </Switch>
             </div>

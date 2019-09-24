@@ -14,8 +14,11 @@ class SideNav extends Component {
                 <li className="sidebar-list-item">
                   {/* <span className="sidebar-link text-muted pl-lg-5">dashboard</span> */}
                   <Link to="/example" className="sidebar-link text-muted pl-lg-5">dashboard</Link>
-                  <Link to="/projects" className="sidebar-link text-muted pl-lg-5">Projects</Link>
-                  <Link to="/modules" className="sidebar-link text-muted pl-lg-5">Modules</Link>
+                  {/* <Link to="/projects" className="sidebar-link text-muted pl-lg-5">Projects</Link> */}
+                  <Link to="/viewProjects" className="sidebar-link text-muted pl-lg-5">Projects</Link>
+                  {/* <Link to="/modules" className="sidebar-link text-muted pl-lg-5">Modules</Link> */}
+                  <Link to="/viewModules" className="sidebar-link text-muted pl-lg-5">Modules</Link>
+                  <Link to="/viewSubModules" className="sidebar-link text-muted pl-lg-5">SubModules</Link>
                   <Link to="/releases" className="sidebar-link text-muted pl-lg-5">Releases</Link>
                 </li>
               </ul>

@@ -1,4 +1,4 @@
-import {GET_MODULE} from '../../_constants/types'
+import {GET_MODULE} from '../_constants/types'
 
 export const fetchModule=()=>dispatch=>{
     dispatch({

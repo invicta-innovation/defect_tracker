@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Card from '../../commons/card';
 import { connect } from 'react-redux';
-import {fetchSubModule} from '../../../_actions/submodules/get-sub-module-action'
+import {fetchSubModule} from '../../../_actions/sub-module-action'
 
 class ViewSubModule extends Component {
     componentDidMount(){

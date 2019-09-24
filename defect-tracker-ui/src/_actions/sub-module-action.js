@@ -1,4 +1,4 @@
-import {GET_SUBMODULE} from '../../_constants/types'
+import {GET_SUBMODULE} from '../_constants/types'
 
 export const fetchSubModule=()=>dispatch=>{
     dispatch({

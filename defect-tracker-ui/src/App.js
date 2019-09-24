@@ -8,7 +8,6 @@ import SideNav from './layout/side-nav';
 import Footer from './layout/footer';
 import Example from './components/defect/example';
 import GeneralConfig from './components/defect/general-config/defectConfig'
-import Releases from './components/defect/releases';
 // import Projects from './components/defect/projects';
 import Modules from './components/defect/modules';
 import ViewProject from "./components/defect/projects/view-project"
@@ -16,7 +15,6 @@ import ViewSubModules from './components/defect/submodules/view-submodule'
 import ViewModules from './components/defect/modules/view-module'
 import Releases from './components/defect/releases/releases';
 import Projects from './components/defect/projects';
-import Modules from './components/defect/modules';
 import Test from './components/defect/test/test'
 
 function App() {

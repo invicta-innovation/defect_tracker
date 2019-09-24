@@ -1,29 +1,28 @@
-import React, { Component } from "react";
-import Card from "../../commons/card";
+import React, { Component } from 'react';
+import Card from "../../../commons/card";
 import { connect } from 'react-redux';
-import { fetchDefectStatus } from '../../../_actions/defect-status-action';
+import { fetchPriority } from '../../../../_actions/priority-action';
 
-class DefectStatus extends Component {
+class Priority extends Component {
   componentDidMount() {
-    this.props.getDefectStatus()
+    this.props.getPriority()
   }
   render() {
     return (
       <div className="col-lg-8">
-        <Card title="Defect status">
           <table className="table table-striped table-hover card-text">
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Status</th>
+                <th>Priority</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.props.defectStatusList.map(dStatus => (
-                <tr key={dStatus.id}>
-                  <td>{dStatus.id}</td>
-                  <td>{dStatus.status}</td>
+              {this.props.priorityList.map(priority => (
+                <tr key={priority.id}>
+                  <td>{priority.id}</td>
+                  <td>{priority.priorityType}</td>
                   <td>
                     {" "}
                     &nbsp; &nbsp;
@@ -43,16 +42,17 @@ class DefectStatus extends Component {
               ))}
             </tbody>
           </table>
-        </Card>
       </div>
     );
   }
 }
-const mapStateToProps = state => ({
-  defectStatusList: state.defectStatusStore.defectStatuses,
 
+const mapStateToProps = state => ({
+  priorityList: state.priorityStore.priority,
 })
+
 const mapDispatchToProps = dispatch => ({
-  getDefectStatus: () => dispatch(fetchDefectStatus()),
+  getPriority: () => dispatch(fetchPriority()),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(DefectStatus);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Priority);

@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
-import Card from "../../commons/card";
+import React, { Component } from "react";
+import Card from "../../../commons/card";
 import { connect } from 'react-redux';
-import { fetchSeverity } from '../../../_actions/severity-action';
+import { fetchDefectStatus } from '../../../../_actions/defect-status-action';
 
-class Severity extends Component {
-
+class DefectStatus extends Component {
   componentDidMount() {
-    this.props.getSeverity()
+    this.props.getDefectStatus()
   }
-
   render() {
     return (
       <div className="col-lg-8">
-        <Card title="Severity">
+        
           <table className="table table-striped table-hover card-text">
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Severity</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.props.severityList.map(severity => (
-                <tr key={severity.id}>
-                  <td>{severity.id}</td>
-                  <td>{severity.severityName}</td>
+              {this.props.defectStatusList.map(dStatus => (
+                <tr key={dStatus.id}>
+                  <td>{dStatus.id}</td>
+                  <td>{dStatus.status}</td>
                   <td>
                     {" "}
                     &nbsp; &nbsp;
@@ -45,17 +43,15 @@ class Severity extends Component {
               ))}
             </tbody>
           </table>
-        </Card>
       </div>
     );
   }
 }
-
 const mapStateToProps = state => ({
-  severityList: state.severityStore.severity,
+  defectStatusList: state.defectStatusStore.defectStatuses,
 
 })
 const mapDispatchToProps = dispatch => ({
-  getSeverity: () => dispatch(fetchSeverity()),
+  getDefectStatus: () => dispatch(fetchDefectStatus()),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Severity);
+export default connect(mapStateToProps, mapDispatchToProps)(DefectStatus);

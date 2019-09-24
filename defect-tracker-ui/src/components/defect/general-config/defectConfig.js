@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import DefectType from "./defect-type";
-import DefectStatus from "./defect-status";
-import Priority from "./priority";
-import Severity from "./severity"
+import DefectType from "./defect-type/defect-type";
+import DefectStatus from "./defect-status/defect-status";
+import Priority from "./priority/priority";
+import Severity from "./serverity/severity"
 import Card from "../../commons/card";
 
 class GeneralConfig extends Component {

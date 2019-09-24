@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
-import Card from "../../commons/card";
+import Card from "../../../commons/card";
 import { connect } from 'react-redux';
-import { fetchPriority } from '../../../_actions/priority-action';
+import { fetchSeverity } from '../../../../_actions/severity-action';
 
-class Priority extends Component {
+class Severity extends Component {
+
   componentDidMount() {
-    this.props.getPriority()
+    this.props.getSeverity()
   }
+
   render() {
     return (
       <div className="col-lg-8">
-        <Card title="Priority">
           <table className="table table-striped table-hover card-text">
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Priority</th>
+                <th>Severity</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.props.priorityList.map(priority => (
-                <tr key={priority.id}>
-                  <td>{priority.id}</td>
-                  <td>{priority.priorityType}</td>
+              {this.props.severityList.map(severity => (
+                <tr key={severity.id}>
+                  <td>{severity.id}</td>
+                  <td>{severity.severityName}</td>
                   <td>
                     {" "}
                     &nbsp; &nbsp;
@@ -43,17 +44,16 @@ class Priority extends Component {
               ))}
             </tbody>
           </table>
-        </Card>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  priorityList: state.priorityStore.priority,
+  severityList: state.severityStore.severity,
 
 })
 const mapDispatchToProps = dispatch => ({
-  getPriority: () => dispatch(fetchPriority()),
+  getSeverity: () => dispatch(fetchSeverity()),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Priority);
+export default connect(mapStateToProps, mapDispatchToProps)(Severity);

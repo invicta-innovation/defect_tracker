@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Card from "../../commons/card";
 import { connect } from 'react-redux';
-import { fetchDefectStatus } from '../../../_actions/defect-status-action';
+import { fetchDefectStatus } from '../../../../_actions/defect-status-action';
 
 class DefectStatus extends Component {
   componentDidMount() {
@@ -10,7 +9,7 @@ class DefectStatus extends Component {
   render() {
     return (
       <div className="col-lg-8">
-        <Card title="Defect status">
+        
           <table className="table table-striped table-hover card-text">
             <thead>
               <tr>
@@ -43,7 +42,6 @@ class DefectStatus extends Component {
               ))}
             </tbody>
           </table>
-        </Card>
       </div>
     );
   }

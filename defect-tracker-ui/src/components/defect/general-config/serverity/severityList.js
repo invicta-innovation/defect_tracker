@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Card from "../../commons/card";
 import { connect } from 'react-redux';
-import { fetchSeverity } from '../../../_actions/severity-action';
+import { fetchSeverity,showModal } from '../../../../_actions/severity-action';
 
-class Severity extends Component {
+class SeverityList extends Component {
 
   componentDidMount() {
     this.props.getSeverity()
@@ -12,7 +11,6 @@ class Severity extends Component {
   render() {
     return (
       <div className="col-lg-8">
-        <Card title="Severity">
           <table className="table table-striped table-hover card-text">
             <thead>
               <tr>
@@ -25,7 +23,7 @@ class Severity extends Component {
               {this.props.severityList.map(severity => (
                 <tr key={severity.id}>
                   <td>{severity.id}</td>
-                  <td>{severity.severityName}</td>
+                  <td>{severity.severityType}</td>
                   <td>
                     {" "}
                     &nbsp; &nbsp;
@@ -35,7 +33,7 @@ class Severity extends Component {
                       data-toggle="tooltip"
                       data-placement="bottom"
                       title="Edit"
-                    // onClick={()=>this.props.onModalShow(role.id)}
+                    onClick={()=>this.props.showModal(severity)}
                     >
                       <i class="fas fa-pen-fancy" />
                     </button>
@@ -45,17 +43,17 @@ class Severity extends Component {
               ))}
             </tbody>
           </table>
-        </Card>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  severityList: state.severityStore.severity,
+  severityList: state.severityStore.severities,
 
 })
 const mapDispatchToProps = dispatch => ({
   getSeverity: () => dispatch(fetchSeverity()),
+  showModal:(obj)=>dispatch(showModal({action:'EDIT',show:true, title:'Update Severity'}, obj))
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Severity);
+export default connect(mapStateToProps, mapDispatchToProps)(SeverityList);

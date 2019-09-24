@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Card from '../../commons/card';
 import { connect } from 'react-redux';
-import {fetchProject} from "../../../_actions/projects/get-project-action"
+import {fetchProject} from "../../../_actions/project-action"
 
 class ViewProject extends Component {
     componentDidMount(){

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {fetchReleases} from '../../../_actions/releases-action';
 import {Form,Modal,Col} from 'react-bootstrap'
 
-
 class Releases extends Component {
     componentDidMount() {
         this.props.getReleases()
@@ -94,6 +93,7 @@ class Releases extends Component {
                   <tr>
                     <th>Id</th>
                     <th>Releases</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -119,3 +119,5 @@ class Releases extends Component {
         getReleases: () => dispatch(fetchReleases()),
     })
     export default connect(mapStateToProps, mapDispatchToProps)(Releases);
+
+    

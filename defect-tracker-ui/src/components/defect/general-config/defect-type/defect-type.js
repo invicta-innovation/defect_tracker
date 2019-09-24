@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Card from "../../commons/card";
+import Card from "../../../commons/card";
 import { connect } from 'react-redux';
-import { fetchDefectTypes } from '../../../_actions/defect-types-action';
+import { fetchDefectTypes } from '../../../../_actions/defect-types-action';
 
 
 class DefectType extends Component {
@@ -13,7 +13,6 @@ class DefectType extends Component {
     render() {
         return (
             <div className="col-lg-8">
-                <Card title="Defect Type">
                     <table className="table table-striped table-hover card-text">
                         <thead>
                             <tr>
@@ -30,7 +29,7 @@ class DefectType extends Component {
                                     <td>
                                         {" "}
                                         &nbsp; &nbsp;
-                <button
+                                            <button
                                             type="submit"
                                             class="btn btn-success btn-circle"
                                             data-toggle="tooltip"
@@ -41,12 +40,11 @@ class DefectType extends Component {
                                             <i class="fas fa-pen-fancy" />
                                         </button>
                                         &nbsp; &nbsp; &nbsp;
-              </td>
+                                        </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
-                </Card>
             </div>
         );
     }

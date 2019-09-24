@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Card from '../../commons/card';
 import { connect } from 'react-redux';
-import {fetchModule} from "../../../_actions/modules/get-module-action"
+import {fetchModule} from "../../../_actions/module-action"
 
 class ViewModule extends Component {
     componentDidMount(){
